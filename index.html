@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nabhans Crafts // Live Feed</title>
+  <style>
+    :root {
+      --neon-green: #39ff9a;
+      --deep-bg: #050810;
+      --glass-bg: rgba(10, 15, 30, 0.95);
+    }
+
+    body {
+      background: var(--deep-bg);
+      color: var(--neon-green);
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ── BACKGROUND ENHANCEMENTS ── */
+    /* 1. Animated Grid */
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(57, 255, 154, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 255, 154, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: -2;
+    }
+
+    /* 2. Moving Scanline Effect */
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.3;
+    }
+
+    /* 3. Floating Data Noise */
+    .noise-layer {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://media.giphy.com/media/oEI9uWU0WMrifuToSi/giphy.gif');
+      opacity: 0.03;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ── MAIN CONTAINER ── */
+    .dashboard-frame {
+      position: relative;
+      width: 500px;
+      padding: 2px; /* For the gradient border */
+      background: linear-gradient(45deg, var(--neon-green), transparent, var(--neon-green));
+      animation: border-glow 4s linear infinite;
+    }
+
+    @keyframes border-glow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    .inner-content {
+      background: var(--glass-bg);
+      padding: 30px;
+      position: relative;
+    }
+
+    .header-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    /* ── IFRAME CLIPPER ── */
+    .clipper {
+      width: 100%;
+      height: 180px; 
+      overflow: hidden;
+      position: relative;
+      background: white;
+      border: 1px solid rgba(57, 255, 154, 0.2);
+    }
+
+    iframe {
+      position: absolute;
+      top: -515px; /* Adjust based on your channel */
+      left: 0;
+      width: 100%;
+      height: 1200px;
+      border: none;
+      transform: scale(1.6);
+      transform-origin: top center;
+      pointer-events: none;
+    }
+
+    .bottom-shield {
+      position: absolute;
+      bottom: 0; left: 0; width: 100%; height: 35px;
+      background: white;
+      z-index: 5;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 9px;
+      color: rgba(57, 255, 154, 0.4);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Small decorative dots */
+    .dot { width: 4px; height: 4px; background: var(--neon-green); display: inline-block; border-radius: 50%; box-shadow: 0 0 5px var(--neon-green); animation: blink 1s infinite; }
+    @keyframes blink { 50% { opacity: 0.3; } }
+  </style>
+</head>
+<body>
+
+<div class="noise-layer"></div>
+
+<div class="dashboard-frame">
+  <div class="inner-content">
+    <div class="header-info">
+      <span><div class="dot"></div> LIVE_STREAM_DATA</span>
+      <span></span>
+    </div>
+    
+    <div class="clipper">
+      <iframe src="https://socialcounts.org/youtube-live-subscriber-count/UCfhc2JtLUh_BPJW0boWvYGA" scrolling="no"></iframe>
+      <div class="bottom-shield"></div>
+    </div>
+
+    <div class="footer">
+  
+      <span>© SAMIYYAN_DEV</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

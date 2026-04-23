@@ -24,7 +24,6 @@
     }
 
     /* ── BACKGROUND ENHANCEMENTS ── */
-    /* 1. Animated Grid */
     body::before {
       content: '';
       position: absolute;
@@ -36,7 +35,6 @@
       z-index: -2;
     }
 
-    /* 2. Moving Scanline Effect */
     body::after {
       content: '';
       position: absolute;
@@ -48,7 +46,6 @@
       opacity: 0.3;
     }
 
-    /* 3. Floating Data Noise */
     .noise-layer {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -58,11 +55,11 @@
       pointer-events: none;
     }
 
-    /* ── MAIN CONTAINER ── */
+    /* ── MAIN CONTAINER (Increased Width) ── */
     .dashboard-frame {
       position: relative;
-      width: 500px;
-      padding: 2px; /* For the gradient border */
+      width: 700px; /* Increased from 500px */
+      padding: 2px; 
       background: linear-gradient(45deg, var(--neon-green), transparent, var(--neon-green));
       animation: border-glow 4s linear infinite;
     }
@@ -74,58 +71,69 @@
 
     .inner-content {
       background: var(--glass-bg);
-      padding: 30px;
+      padding: 40px; /* Increased padding */
       position: relative;
     }
 
     .header-info {
       display: flex;
       justify-content: space-between;
-      font-size: 10px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
       opacity: 0.8;
     }
 
-    /* ── IFRAME CLIPPER ── */
+    /* ── IFRAME CLIPPER (Adjusted for visibility) ── */
     .clipper {
       width: 100%;
-      height: 180px; 
+      height: 250px; /* Increased from 180px */
       overflow: hidden;
       position: relative;
       background: white;
       border: 1px solid rgba(57, 255, 154, 0.2);
+      border-radius: 4px;
     }
 
     iframe {
       position: absolute;
-      top: -515px; /* Adjust based on your channel */
+      top: -480px; /* Recalibrated vertical position */
       left: 0;
       width: 100%;
-      height: 40%;
+      height: 1000px; /* Larger height to prevent cut-off */
       border: none;
-      transform: scale(1.6);
+      transform: scale(1.4); /* Slightly reduced scale for better framing */
       transform-origin: top center;
       pointer-events: none;
     }
 
     .bottom-shield {
       position: absolute;
-      bottom: 0; left: 0; width: 100%; height: 35px;
+      bottom: 0; left: 0; width: 100%; height: 60px;
       background: white;
       z-index: 5;
     }
 
     .footer {
-      margin-top: 20px;
-      font-size: 9px;
+      margin-top: 25px;
+      font-size: 10px;
       color: rgba(57, 255, 154, 0.4);
       display: flex;
       justify-content: space-between;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* Small decorative dots */
-    .dot { width: 4px; height: 4px; background: var(--neon-green); display: inline-block; border-radius: 50%; box-shadow: 0 0 5px var(--neon-green); animation: blink 1s infinite; }
+    .dot { 
+      width: 6px; height: 6px; 
+      background: var(--neon-green); 
+      display: inline-block; 
+      border-radius: 50%; 
+      box-shadow: 0 0 8px var(--neon-green); 
+      animation: blink 1s infinite; 
+      margin-right: 8px;
+    }
+    
     @keyframes blink { 50% { opacity: 0.3; } }
   </style>
 </head>
@@ -136,18 +144,18 @@
 <div class="dashboard-frame">
   <div class="inner-content">
     <div class="header-info">
-      <span><div class="dot"></div> LIVE_STREAM_DATA</span>
-      <span></span>
+      <span><div class="dot"></div> SYSTEM_ACTIVE: LIVE_SUBSCRIBER_FEED</span>
+      <span>V.2.0</span>
     </div>
-    
+        
     <div class="clipper">
       <iframe src="https://socialcounts.org/youtube-live-subscriber-count/UCfhc2JtLUh_BPJW0boWvYGA" scrolling="no"></iframe>
       <div class="bottom-shield"></div>
     </div>
 
     <div class="footer">
-  
-      <span>© SAMIYYAN_DEV</span>
+        <span>ESTABLISHING SECURE CONNECTION...</span>
+        <span>© SAMIYYAN_DEV</span>
     </div>
   </div>
 </div>
